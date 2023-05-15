@@ -1,0 +1,653 @@
+/******************************************************************************
+START Glitch hello-app default styles
+
+The styles in this section do some minimal CSS resets, set default fonts and 
+colors, and handle the layout for our footer and "Remix on Glitch" button. If
+you're new to CSS they may seem a little complicated, but you can scroll down
+to this section's matching END comment to see page-specific styles.
+******************************************************************************/
+
+/* 
+  The style rules specify elements by type and by attributes such as class and ID
+  Each section indicates an element or elements, then lists the style properties to apply
+  See if you can cross-reference the rules in this file with the elements in index.html
+*/
+
+/* Our default values set as CSS variables */
+:root {
+  --color-bg: #000000;
+  --color-text-main: #000000;
+  --color-primary: #ffff00;
+  --wrapper-height: 87vh;
+  --image-max-width: 300px;
+  --image-margin: 3rem;
+  --font-family: "HK Grotesk";
+  --font-family-header: "HK Grotesk";
+}
+
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: white;
+}
+
+/* selected link */
+a:active {
+  color: white;
+}
+
+/* Import fonts */
+@font-face {
+  font-family: HK Grotesk;
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
+    format("opentype");
+}
+@font-face {
+  font-family: HK Grotesk;
+  font-weight: bold;
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
+    format("opentype");
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.btn {
+  position: fixed;
+}
+/* Our remix on glitch button */
+.btn--remix {
+  font-family: HK Grotesk;
+
+  font-size: 1.1rem;
+  line-height: 1rem;
+  font-weight: 500;
+  height: 2.75rem;
+  align-items: center;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #000;
+  white-space: nowrap;
+  margin-left: auto;
+}
+.btn--remix img {
+  margin-right: 0.5rem;
+}
+.btn--remix:hover {
+  background-color: #d0fff1;
+}
+
+/* Navigation grid */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto 0;
+  padding: 1rem 0 0.75rem 0;
+  width: 100%;
+  flex-wrap: wrap;
+  border-top: 4px solid #fff;
+}
+
+.footer a:not(.btn--remix):link,
+a:not(.btn--remix):visited {
+  font-family: HK Grotesk;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: #000;
+  text-decoration: none;
+  border-style: none;
+}
+.footer a:hover {
+  background: var(--color-primary);
+}
+
+.footer .links {
+  padding: 0.5rem 1rem 1.5rem;
+  white-space: nowrap;
+}
+
+.divider {
+}
+/******************************************************************************
+END Glitch hello-app default styles
+******************************************************************************/
+
+body {
+  font-family: HK Grotesk;
+  background-color: var(--color-bg);
+}
+
+/* Page structure */
+.wrapper {
+  min-height: var(--wrapper-height);
+  display: grid;
+  place-items: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Very light scaling for our illustration */
+.bg {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  color: #ffffff;
+  z-index: -2;
+  
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 105%;
+
+  margin: 0;
+}
+.divide {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 50%;
+  transform: rotate(-90deg);
+  width: 234%;
+  left: -670px;
+  color: #ffffff;
+  z-index: -1;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 105%;
+
+  margin: 0;
+}
+.sq {
+  
+  transition: all 0.2s ease;
+  position: fixed;
+  top: -8%;
+  width: 29vw;
+  height: 200%;
+  left: -4%;
+  color: #ffffff;
+  z-index: -1;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 105%;
+
+  margin: 0;
+}
+.credits {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 92%;
+  left: 77%;
+  background-color: white;
+  color: #000000;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5vw;
+  line-height: 105%;
+
+  margin: 0;
+}
+.one {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 1.5vw;
+  left: 2%;
+  color: #ffffff;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+
+  margin: 0;
+}
+
+.zero {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 67vw;
+  left: 2%;
+  color: #ffffff;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4vw;
+  line-height: 105%;
+
+  margin: 0;
+}
+.two {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 5.5vw;
+  left: 2%;
+  color: #ffffff;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+
+  margin: 0;
+}
+.three {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 9.5vw;
+  left: 2%;
+  color: #ad031b;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+
+  margin: 0;
+}
+.four {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 13.5vw;
+  left: 2%;
+  color: #ee6c04;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+
+  margin: 0;
+}
+.five {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 17.4vw;
+  left: 2%;
+  color: #95cf1a;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.q{
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 21.5vw;
+  left: 2%;
+  color: #9134ed;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.w{
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 25.5vw;
+  left: 2%;
+  color: #a2aebe;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.e{
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 29.5vw;
+  left: 2%;
+  color: #6c6f75;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.r{
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 33.5vw;
+  left: 2%;
+  color: #f2df23;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.t {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 37.5vw;
+  left: 2%;
+  color: #ffffff;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.y {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 41.5vw;
+  left: 2%;
+  color: #bf031e;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.u {
+  transition: all 0.2s ease;
+  position: fixed;
+  top: 45.5vw;
+  left: 2%;
+  color: #bd031f;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+  border-radius: 2px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  line-height: 105%;
+  margin: 0;
+}
+.zero:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+
+.one:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+
+  line-height: 105%;
+
+  margin: 0;
+}
+.two:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  color: #ffffff;
+}
+.q:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+.w:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+.e:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+.r:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+.t:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+.y:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+.u:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+  
+}
+.three:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+
+  margin: 0;
+}
+.four:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+
+  margin: 0;
+}
+.five:hover {
+  transition: all 0.2s ease;
+  position: fixed;
+  
+  left: 3%;
+}
+
+/* Very light scaling for our illustration */
+.illustration {
+  padding: 0px;
+  right: 10px;
+  transition: all 0.2s ease;
+  border-color: #d83c3c;
+
+  border-right-style: solid;
+
+  border-left-style: solid;
+  width: 40%;
+  height: 40%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.top {
+  padding: 0px;
+  right: 10px;
+  transition: all 0.2s ease;
+  border-color: #d83c3c;
+
+  border-right-style: solid;
+border-top-style: solid;
+  border-left-style: solid;
+  width: 40%;
+  height: 40%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.bottom {
+  padding: 0px;
+  right: 10px;
+  transition: all 0.2s ease;
+  border-color: #d83c3c;
+
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  width: 40%;
+  height: 40%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Instructions */
+.instructions {
+  margin: 1rem auto 0;
+}
+
+/* Button - Add it from the README instructions */
+button,
+input {
+  font-family: inherit;
+  font-size: 100%;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: 500ms;
+}
+
+/* Subheading */
+h2 {
+  color: #2800ff;
+}
+
+/* Interactive image */
+.illustration:active {
+  transform: translateY(0px);
+}
+
+
+/* Button dip
+- Toggling this class on and off will move it down and up again
+- The button transition property above determines the speed of the translate (500ms)
+*/
+.dipped {
+  transform: translateY(5px);
+}
+
+/* Links that open files in the editor */
+.fileopener {
+  cursor: pointer;
+  font-weight: bold;
+  border-bottom: 3px solid var(--color-primary);
+  color: var(--color-secondary);
+}
+.fileopener:hover {
+  border-bottom: 3px solid var(--color-secondary);
+}
